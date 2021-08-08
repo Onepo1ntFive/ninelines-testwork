@@ -1,0 +1,100 @@
+.testwork {
+	margin: 60px auto;
+	max-width: 662px;
+	background: url("../images/bg.jpg") 50% 50% repeat;
+
+	&__item {
+		border-top: 2px solid $color-gray;
+		padding: 30px 20px;
+
+		&:first-child {
+			border-top: 0;
+		}
+
+		&--skills {
+			padding-bottom: 0;
+		}
+	}
+}
+
+.form {
+	/* stylelint-disable */
+	::-webkit-input-placeholder {
+		color: transparent;
+	}
+	:-moz-placeholder {
+		color: transparent;
+		opacity: 1;
+	}
+	::-moz-placeholder {
+		color: transparent;
+		opacity: 1;
+	}
+	:-ms-input-placeholder {
+		color: transparent;
+	}
+	/* stylelint-enable */
+
+	&__avatar {
+		img {
+			border-radius: 1000px;
+		}
+	}
+
+	&__items {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	&__item {
+		position: relative;
+
+		&--text {
+			label {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				font-family: $font-roboto;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: $color-dark-gray2;
+				opacity: 0;
+				transform: translateY(-50%);
+				transition: opacity 0.2s ease-in-out;
+				will-change: opacity;
+				pointer-events: none;
+			}
+
+			input {
+				margin: 0;
+				border: 0;
+				border-bottom: 2px solid $color-dark-gray;
+				padding: 10px 0;
+				width: 100%;
+				background: none;
+
+				&:placeholder-shown + label {
+					opacity: 1;
+				}
+
+				&:focus {
+					outline: 0;
+				}
+			}
+		}
+
+		&--checkbox {
+			flex: 1 auto;
+			margin-bottom: 30px;
+			width: 50%;
+
+			@include tablet {
+				width: 33.33%;
+			}
+
+			@include desktop {
+				width: 25%;
+			}
+		}
+	}
+}
