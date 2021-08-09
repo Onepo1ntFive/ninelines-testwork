@@ -6,67 +6,83 @@ main
 				alt: 'Аватарка',
 			}).form__avatar
 
+			.form__aproved.js-meter-aproved
+				img(src="../images/aproved.svg" alt="Aproved")
+
 			fieldset
 				.form__item.form__item--text
 					input(type="text" placeholder="Имя")
-					label Имя
+					label.form__label Имя
 				.form__item.form__item--text
 					input(type="text" placeholder="Дата рождения")
-					label Дата рождения
+					label.form__label Дата рождения
 				.form__item.form__item--text
 					input(type="text" placeholder="Город")
-					label Город
+					label.form__label Город
 				.form__item.form__item--text
 					input(type="text" placeholder="Контактные данные")
-					label Контактные данные
+					label.form__label Контактные данные
 
 		.skills.testwork__item.testwork__item--skills
-			fieldset.form__items
+			h2 Навыки
+			fieldset.form__items.js-meter-checkboxes
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label html5
+					input.js-meter-checkbox#html5(type="checkbox")
+					label.form__checkbox(for="html5")
+					label.form__label(for="html5") html5
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label sass
+					input.js-meter-checkbox#sass(type="checkbox" checked="checked")
+					label.form__checkbox(for="sass")
+					label.form__label(for="sass") sass
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label vanillajs
+					input.js-meter-checkbox#vanillajs(type="checkbox")
+					label.form__checkbox(for="vanillajs")
+					label.form__label(for="vanillajs") vanillajs
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label git
+					input.js-meter-checkbox#git(type="checkbox")
+					label.form__checkbox(for="git")
+					label.form__label(for="git") git
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label css3
+					input.js-meter-checkbox#css3(type="checkbox" checked="checked")
+					label.form__checkbox(for="css3")
+					label.form__label(for="css3") css3
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label less
+					input.js-meter-checkbox#less(type="checkbox")
+					label.form__checkbox(for="less")
+					label.form__label(for="less") less
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label angular
+					input.js-meter-checkbox#angular(type="checkbox")
+					label.form__checkbox(for="angular")
+					label.form__label(for="angular") angular
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label foundation
+					input.js-meter-checkbox#foundation(type="checkbox" checked="checked")
+					label.form__checkbox(for="foundation")
+					label.form__label(for="foundation") foundation
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label бэм
+					input.js-meter-checkbox#bem(type="checkbox")
+					label.form__checkbox(for="bem")
+					label.form__label(for="bem") бэм
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label gulp
+					input.js-meter-checkbox#gulp(type="checkbox")
+					label.form__checkbox(for="gulp")
+					label.form__label(for="gulp") gulp
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label jquery
+					input.js-meter-checkbox#jquery(type="checkbox")
+					label.form__checkbox(for="jquery")
+					label.form__label(for="jquery") jquery
 				.form__item.form__item--checkbox
-					input(type="checkbox")
-					label bootstrap
+					input.js-meter-checkbox#bootstrap(type="checkbox")
+					label.form__checkbox(for="bootstrap")
+					label.form__label(for="bootstrap") bootstrap
 
 		.level.testwork__item
 			.level__meter-wrap
-				.level__meter
+				.level__meter.js-meter
 					img.level__meter-pic(src="../images/meter.svg" alt="Шкала")
-					img.level__meter-arrow(src="../images/meter-arrow.svg" alt="Стрелочка")
+					img.level__meter-arrow.js-meter-arrow(src="../images/meter-arrow.svg" alt="Стрелочка")
 			.level__result
 				| Мой уровень владения
 				br
 				| Java Script
-				strong
+				strong.js-meter-score
 					| 0

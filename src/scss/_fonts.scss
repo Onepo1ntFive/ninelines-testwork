@@ -1,2 +1,4 @@
 // stylelint-disable no-empty-source
-// @include font-face("../fonts/FontName/FontName", "FontName", 400, normal);
+@include font-face("../fonts/Roboto/Roboto-Regular", "Roboto", 400, normal);
+@include font-face("../fonts/Roboto/Roboto-Medium", "Roboto", 500, normal);
+@include font-face("../fonts/Roboto/Roboto-Bold", "Roboto", 700, normal);

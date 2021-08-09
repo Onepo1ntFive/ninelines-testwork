@@ -1,7 +1,18 @@
+.site {
+	overflow: hidden;
+}
+
 .testwork {
 	margin: 60px auto;
 	max-width: 662px;
 	background: url("../images/bg.jpg") 50% 50% repeat;
+
+	h2 {
+		margin: 0 auto 30px;
+		font-weight: 500;
+		font-size: 18px;
+		color: $color-black;
+	}
 
 	&__item {
 		border-top: 2px solid $color-gray;
@@ -18,27 +29,69 @@
 }
 
 .form {
-	/* stylelint-disable */
-	::-webkit-input-placeholder {
-		color: transparent;
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+
+	fieldset {
+		flex: 1 auto;
+		width: 100%;
+
+		@include tablet {
+			padding-left: 20px;
+			width: auto;
+		}
+
+		@include desktop {
+			padding-left: 20px;
+			width: auto;
+		}
 	}
-	:-moz-placeholder {
-		color: transparent;
-		opacity: 1;
-	}
-	::-moz-placeholder {
-		color: transparent;
-		opacity: 1;
-	}
-	:-ms-input-placeholder {
-		color: transparent;
-	}
-	/* stylelint-enable */
 
 	&__avatar {
+		display: block;
+		width: 100%;
+		text-align: center;
+
 		img {
 			border-radius: 1000px;
+			max-width: 140px;
 		}
+
+		@include tablet {
+			width: auto;
+		}
+
+		@include desktop {
+			width: auto;
+		}
+	}
+
+	&__aproved {
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+		z-index: 1;
+		opacity: 0;
+		transform: scale(100);
+		transition-property: opacity, transform;
+		transition-duration: 0.5s;
+		transition-timing-function: ease-in-out;
+		will-change: transform, opacity;
+		pointer-events: none;
+
+		&.active {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&__label {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 1;
+		text-transform: uppercase;
+		color: $color-dark-gray2;
 	}
 
 	&__items {
@@ -50,14 +103,12 @@
 		position: relative;
 
 		&--text {
+			margin-bottom: 20px;
+
 			label {
 				position: absolute;
 				left: 0;
 				top: 50%;
-				font-family: $font-roboto;
-				font-size: 12px;
-				text-transform: uppercase;
-				color: $color-dark-gray2;
 				opacity: 0;
 				transform: translateY(-50%);
 				will-change: opacity;
@@ -80,12 +131,51 @@
 					outline: 0;
 				}
 			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		&--checkbox {
+			display: flex;
 			flex: 1 auto;
+			flex-flow: row nowrap;
+			align-items: center;
 			margin-bottom: 30px;
 			width: 50%;
+
+			.form__checkbox {
+				display: block;
+				margin-right: 8px;
+				border-radius: 4px;
+				width: 19px;
+				height: 19px;
+				line-height: 19px;
+				text-align: center;
+				background: 50% 50% no-repeat $color-dark-gray3;
+				background-size: 20%;
+				transition: background 0.2s ease-in-out;
+			}
+
+			input {
+				position: absolute;
+				opacity: 0;
+				pointer-events: none;
+
+				&:checked ~ .form__checkbox {
+					background: url("../images/icon-check.svg") 50% 50% no-repeat $color-blue;
+					background-size: auto;
+
+					img {
+						opacity: 1;
+					}
+				}
+			}
+
+			.form__label {
+				flex: 1 auto;
+			}
 
 			@include tablet {
 				width: 33.33%;
@@ -96,14 +186,43 @@
 			}
 		}
 	}
+	/* stylelint-disable */
+	::-webkit-input-placeholder {
+		color: transparent;
+	}
+	:-moz-placeholder {
+		color: transparent;
+		opacity: 1;
+	}
+	::-moz-placeholder {
+		color: transparent;
+		opacity: 1;
+	}
+	:-ms-input-placeholder {
+		color: transparent;
+	}
+	/* stylelint-enable */
 }
 
 .level {
 	display: flex;
 	flex-flow: row wrap;
+	align-items: center;
 
 	&__meter-wrap {
-		width: 50%;
+		padding-bottom: 40px;
+		width: 100%;
+		text-align: center;
+
+		@include tablet {
+			padding-bottom: 0;
+			width: 50%;
+		}
+
+		@include desktop {
+			padding-bottom: 0;
+			width: 50%;
+		}
 	}
 
 	&__meter {
@@ -121,10 +240,12 @@
 		bottom: -10px;
 		transform: translateX(-50%) rotate(-90deg);
 		transform-origin: 50% calc(100% - 10px);
+		transition: transform 0.5s ease-in-out;
+		will-change: transform;
 	}
 
 	&__result {
-		width: 50%;
+		width: 100%;
 		font-weight: 500;
 		font-size: 18px;
 
@@ -134,5 +255,23 @@
 			font-size: 50px;
 			color: $color-blue;
 		}
+
+		@include tablet {
+			width: 50%;
+		}
+
+		@include desktop {
+			width: 50%;
+		}
+	}
+
+	@include tablet {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	@include desktop {
+		padding-top: 60px;
+		padding-bottom: 60px;
 	}
 }
