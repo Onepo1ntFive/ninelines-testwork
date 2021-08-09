@@ -50,6 +50,7 @@
 
 	&__avatar {
 		display: block;
+		padding-top: 10px;
 		width: 100%;
 		text-align: center;
 
@@ -103,11 +104,11 @@
 		position: relative;
 
 		&--text {
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 
 			label {
 				position: absolute;
-				left: 0;
+				left: 0.1em;
 				top: 50%;
 				opacity: 0;
 				transform: translateY(-50%);
@@ -145,7 +146,11 @@
 			margin-bottom: 30px;
 			width: 50%;
 
-			.form__checkbox {
+			label {
+				cursor: pointer;
+			}
+
+			label.form__checkbox {
 				display: block;
 				margin-right: 8px;
 				border-radius: 4px;
@@ -156,6 +161,10 @@
 				background: 50% 50% no-repeat $color-dark-gray3;
 				background-size: 20%;
 				transition: background 0.2s ease-in-out;
+
+				&:hover {
+					background-color: $color-blue;
+				}
 			}
 
 			input {
@@ -212,7 +221,10 @@
 	&__meter-wrap {
 		padding-bottom: 40px;
 		width: 100%;
-		text-align: center;
+
+		@include mobile {
+			text-align: center;
+		}
 
 		@include tablet {
 			padding-bottom: 0;
@@ -257,10 +269,12 @@
 		}
 
 		@include tablet {
+			padding-left: 20px;
 			width: 50%;
 		}
 
 		@include desktop {
+			padding-left: 20px;
 			width: 50%;
 		}
 	}
